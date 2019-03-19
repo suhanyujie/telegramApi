@@ -1,6 +1,6 @@
 package telegramApi
 
-import "telegramApi/apiImpl"
+import "github.com/suhanyujie/telegramApi/apiImpl"
 
 // 尝试发送telegram的消息给机器人
 // https://core.telegram.org/bots/api#available-methods
