@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"practice/telegramApi/apiClient"
-	"practice/telegramApi/common"
+	"telegramApi/apiClient"
+	"telegramApi/common"
 )
 
 func SendMessage(msgContent string) string {

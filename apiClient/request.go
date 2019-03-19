@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"practice/telegramApi/common"
+	"telegramApi/common"
 )
 
 var configData = common.Config{}
