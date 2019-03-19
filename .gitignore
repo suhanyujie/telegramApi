@@ -1,0 +1,8 @@
+/.idea
+.DS_Store
+/a.exe
+/*/*.exe
+config/config.json
+config.json
+vendor
+
