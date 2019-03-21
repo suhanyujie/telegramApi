@@ -8,11 +8,12 @@ import (
 	"github.com/suhanyujie/telegramApi/common"
 )
 
-func SendMessage(msgContent string) string {
+// conType是内容类型，值为Markdown,HTML
+func SendMessage(msgContent string,conType string) string {
 	params := map[string]string{
 		"chat_id":    "@testForBotChannel1", //
 		"text":       msgContent,
-		"parse_mode": "Markdown",
+		"parse_mode": conType,
 	}
 	req, err := apiClient.GetRequest("POST", "sendMessage", params)
 	common.CheckError(err, 2)
