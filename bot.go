@@ -3,7 +3,7 @@ package telegramApi
 import (
 	"html/template"
 	"log"
-	"telegramApi/apiImpl"
+	"github.com/suhanyujie/telegramApi/apiImpl"
 )
 
 type Wr struct {
