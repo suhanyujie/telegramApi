@@ -24,11 +24,15 @@ func SendMarkdownContent()  {
 }
 
 func SendHtmlContent(assignVar map[string]interface{})  {
-	ContentBox := new(Wr)
+	box := make([]byte, 1024)
+	ContentBox := &Wr{
+		box,
+	}
 	t,err := template.ParseFiles("template/html/messageStyle1.html")
 	if err!= nil {
 		log.Println(err)
 	}
 	t.Execute(ContentBox, assignVar)
+	log.Println(string(ContentBox.Content))
 	apiImpl.SendMessage(string(ContentBox.Content),"HTML")
 }

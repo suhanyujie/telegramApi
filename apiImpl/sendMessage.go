@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"github.com/suhanyujie/telegramApi/apiClient"
-	"github.com/suhanyujie/telegramApi/common"
+	"telegramApi/apiClient"//github.com/suhanyujie/telegramApi/apiClient
+	"telegramApi/common"//github.com/suhanyujie/telegramApi/common
 )
 
 // conType是内容类型，值为Markdown,HTML
