@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"telegramApi/common" //github.com/suhanyujie/telegramApi/common
+	"github.com/suhanyujie/telegramApi/common" //github.com/suhanyujie/telegramApi/common
 	"log"
 )
 
