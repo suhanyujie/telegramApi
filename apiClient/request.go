@@ -3,17 +3,14 @@ package apiClient
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"github.com/suhanyujie/telegramApi/common"
-	"log"
 )
 
 var configData = common.Config{}
 
 func init() {
 	tmpConfigData, err := common.ParseConfig("config.json")
-	log.Println(tmpConfigData)
 	if err != nil {
 		common.CheckError(err, 2)
 	}
@@ -27,7 +24,6 @@ func GetRequest(method, apiName string, params map[string]string) (*http.Request
 	}
 	bodyReader := bytes.NewReader(body)
 	url := getApiUrl(apiName)
-	fmt.Println(url)
 	request, err := http.NewRequest(method, url, bodyReader)
 	if err != nil {
 		return nil, err
