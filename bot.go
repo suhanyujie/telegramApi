@@ -1,18 +1,23 @@
 package telegramApi
 
-import "log"
+import (
+	"log"
+	"html/template"
+	"github.com/suhanyujie/telegramApi/apiImpl"
+	"bytes"
+)
 
 func test()  {
 	log.Println("test...")
 }
 
-/*
 type Wr struct {
 	Content []byte
 }
 
 func (wr *Wr)Write(p []byte) (int,error) {
 	copy(wr.Content, p)
+	wr.Content = bytes.TrimSpace(wr.Content)
 	return len(p),nil
 }
 
@@ -37,4 +42,3 @@ func SendHtmlContent(assignVar map[string]interface{})  {
 	log.Println(string(ContentBox.Content))
 	apiImpl.SendMessage(string(ContentBox.Content),"HTML")
 }
-*/

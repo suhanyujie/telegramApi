@@ -23,3 +23,7 @@ func TestSendHtmlContent(t *testing.T) {
 	}
 	SendHtmlContent(param)
 }
+
+func TestSendMarkdownContent(t *testing.T) {
+
+}
