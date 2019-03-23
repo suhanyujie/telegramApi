@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"github.com/suhanyujie/telegramApi/apiClient"
-	"github.com/suhanyujie/telegramApi/common"
+	"telegramApi/apiClient"
+	"telegramApi/common"
+	"time"
 )
 
 // conType是内容类型，值为Markdown,HTML
@@ -17,7 +18,9 @@ func SendMessage(msgContent string,conType string) string {
 	}
 	req, err := apiClient.GetRequest("POST", "sendMessage", params)
 	common.CheckError(err, 2)
-	client := &http.Client{}
+	client := &http.Client{
+		Timeout: 15 * time.Second,
+	}
 	resp, err := client.Do(req)
 	common.CheckError(err, 2)
 	defer resp.Body.Close()

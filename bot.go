@@ -1,15 +1,11 @@
 package telegramApi
 
 import (
-	"log"
-	"html/template"
-	"github.com/suhanyujie/telegramApi/apiImpl"
 	"bytes"
+	"html/template"
+	"log"
+	"telegramApi/apiImpl"
 )
-
-func test()  {
-	log.Println("test...")
-}
 
 type Wr struct {
 	Content []byte
@@ -21,24 +17,29 @@ func (wr *Wr)Write(p []byte) (int,error) {
 	return len(p),nil
 }
 
-func SendMarkdownContent()  {
-	//mdCon := "```\n " +
-	//	"hello world" +
-	//	"\n```"
-
-	//apiImpl.SendMessage(mdCon)
+func SendMarkdownContent(assignVar map[string]interface{})  {
+	var docBuf bytes.Buffer
+	t,err := template.ParseFiles("template/markdown/mdStyle1.md")
+	if err!= nil {
+		log.Println(err)
+	}
+	t.Execute(&docBuf, assignVar)
+	contentStr := docBuf.String()
+	apiImpl.SendMessage(contentStr,"Markdown")
 }
 
 func SendHtmlContent(assignVar map[string]interface{})  {
-	box := make([]byte, 1024)
-	ContentBox := &Wr{
-		box,
-	}
+	// 默认分配2048字节的缓冲区
+	var doc bytes.Buffer
+	//box := make([]byte, 2048)
+	//ContentBox := &Wr{
+	//	box,
+	//}
 	t,err := template.ParseFiles("template/html/messageStyle1.html")
 	if err!= nil {
 		log.Println(err)
 	}
-	t.Execute(ContentBox, assignVar)
-	log.Println(string(ContentBox.Content))
-	apiImpl.SendMessage(string(ContentBox.Content),"HTML")
+	t.Execute(&doc, assignVar)
+	contentStr := doc.String()
+	apiImpl.SendMessage(contentStr,"HTML")
 }
