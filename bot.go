@@ -31,10 +31,6 @@ func SendMarkdownContent(assignVar map[string]interface{})  {
 func SendHtmlContent(assignVar map[string]interface{})  {
 	// 默认分配2048字节的缓冲区
 	var doc bytes.Buffer
-	//box := make([]byte, 2048)
-	//ContentBox := &Wr{
-	//	box,
-	//}
 	t,err := template.ParseFiles("template/html/messageStyle1.html")
 	if err!= nil {
 		log.Println(err)

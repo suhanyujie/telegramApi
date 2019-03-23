@@ -6,13 +6,15 @@ import (
 	"net/http"
 	"telegramApi/apiClient"
 	"telegramApi/common"
+	"telegramApi/config"
 	"time"
 )
 
 // conType是内容类型，值为Markdown,HTML
 func SendMessage(msgContent string,conType string) string {
+	telegramConfig := config.ConfigData.TelegramBot
 	params := map[string]string{
-		"chat_id":    "@testForBotChannel1", //
+		"chat_id":    telegramConfig.ChannelRoom, //
 		"text":       msgContent,
 		"parse_mode": conType,
 	}
